@@ -66,5 +66,5 @@ object SPUtil {
 
     fun putArrayList(key: String, value: ArrayList<out Any>) = putString(key, Gson().toJson(value))
 
-    fun <T> getArrayList(key: String) = Gson().fromJson(mSharedPreferences.getString(key,"[]"), ArrayList::class.java) as ArrayList<T>
+    fun <T> getArrayList(key: String) = Gson().fromJson(mSharedPreferences.getString(key, "[]"), ArrayList::class.java) as ArrayList<*>
 }
