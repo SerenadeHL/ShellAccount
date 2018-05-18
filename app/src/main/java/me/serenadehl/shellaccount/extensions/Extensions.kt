@@ -14,7 +14,7 @@ import me.serenadehl.shellaccount.BuildConfig
 import me.serenadehl.shellaccount.utils.sharedpre.SPUtil
 import java.io.Serializable
 import android.app.Fragment as AppFragment
-import android.support.v4.app.Fragment as SupportFragment
+import androidx.fragment.app.Fragment as SupportFragment
 
 /**
  *
@@ -96,8 +96,8 @@ fun AppFragment.startActivity(activity: Class<out Activity>, vararg params: Pair
  * @param view
  */
 fun Context.hideKeyboard(view: View) {
-    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-    imm?.hideSoftInputFromWindow(view.windowToken, 0)
+    val imm = applicationContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(view.windowToken, 0)
 }
 
 /**
@@ -106,25 +106,20 @@ fun Context.hideKeyboard(view: View) {
  * @param view
  */
 fun Context.showKeyboard(view: View) {
-    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-    imm?.showSoftInput(view, 0)
+    val imm = applicationContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.showSoftInput(view, 0)
 }
 
-fun SupportFragment.hideKeyboard(view: View) {
-    activity?.applicationContext?.hideKeyboard(view)
-}
+fun SupportFragment.hideKeyboard(view: View) = activity?.hideKeyboard(view)
 
-fun SupportFragment.showKeyboard(view: View) {
-    activity?.applicationContext?.showKeyboard(view)
-}
+fun SupportFragment.showKeyboard(view: View) = activity?.showKeyboard(view)
 
-fun AppFragment.hideKeyboard(view: View) {
-    activity?.applicationContext?.hideKeyboard(view)
-}
 
-fun AppFragment.showKeyboard(view: View) {
-    activity?.applicationContext?.showKeyboard(view)
-}
+fun AppFragment.hideKeyboard(view: View) = activity?.hideKeyboard(view)
+
+
+fun AppFragment.showKeyboard(view: View) = activity?.showKeyboard(view)
+
 
 /**
  * 设置虚拟按键颜色

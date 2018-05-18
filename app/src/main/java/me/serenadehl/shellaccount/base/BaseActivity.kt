@@ -3,9 +3,12 @@ package me.serenadehl.shellaccount.base
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.AppCompatActivity
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import me.serenadehl.shellaccount.R
+import me.serenadehl.shellaccount.extensions.setNavigationBarColor
 
 abstract class BaseActivity : AppCompatActivity() {
     lateinit var mRootView: View
@@ -16,6 +19,7 @@ abstract class BaseActivity : AppCompatActivity() {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         mRootView = LayoutInflater.from(this).inflate(layout(), null)
         setContentView(mRootView)
+        setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimary))
         onActivityCreated()
     }
 
@@ -44,6 +48,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     /**
      * 设置StatusBar透明
+     *
+     * @param darkFont 是否使用深色状态栏字体
      */
     fun setTranslucentStatus(darkFont: Boolean) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -67,6 +73,7 @@ abstract class BaseActivity : AppCompatActivity() {
      * 设置状态栏颜色
      *
      * @param color 颜色
+     * @param darkFont 是否使用深色状态栏字体
      */
     fun setStatusBarColor(color: Int, darkFont: Boolean) {
         setTranslucentStatus(darkFont)
@@ -83,7 +90,6 @@ abstract class BaseActivity : AppCompatActivity() {
     /**
      * 创建view替换StatusBar
      *
-     * @param activity
      * @param contentLayout
      * @param color
      */
