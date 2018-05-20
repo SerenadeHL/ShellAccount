@@ -13,8 +13,8 @@ import android.widget.Toast
 import me.serenadehl.shellaccount.BuildConfig
 import me.serenadehl.shellaccount.utils.sharedpre.SPUtil
 import java.io.Serializable
+import android.support.v4.app.Fragment as SupportFragment
 import android.app.Fragment as AppFragment
-import androidx.fragment.app.Fragment as SupportFragment
 
 /**
  *

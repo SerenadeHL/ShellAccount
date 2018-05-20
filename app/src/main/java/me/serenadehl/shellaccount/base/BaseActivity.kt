@@ -3,10 +3,10 @@ package me.serenadehl.shellaccount.base
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
+import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.AppCompatActivity
 import android.view.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import me.serenadehl.shellaccount.R
 import me.serenadehl.shellaccount.extensions.setNavigationBarColor
 
@@ -54,7 +54,6 @@ abstract class BaseActivity : AppCompatActivity() {
     fun setTranslucentStatus(darkFont: Boolean) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             //5.0 全透明实现
-            val window = window
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             if (darkFont)
                 window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
