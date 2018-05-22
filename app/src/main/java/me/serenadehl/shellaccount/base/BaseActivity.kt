@@ -74,7 +74,7 @@ abstract class BaseActivity : AppCompatActivity() {
      * @param color 颜色
      * @param darkFont 是否使用深色状态栏字体
      */
-    fun setStatusBarColor(color: Int, darkFont: Boolean) {
+    fun setStatusBarColor(color: Int, darkFont: Boolean = false) {
         setTranslucentStatus(darkFont)
         val contentLayout = findViewById<View>(android.R.id.content) as ViewGroup
         setupStatusBarView(contentLayout, color)
