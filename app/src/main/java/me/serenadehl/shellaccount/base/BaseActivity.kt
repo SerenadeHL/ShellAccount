@@ -31,7 +31,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     abstract fun onActivityCreated()
 
-
     /**
      * 获得StatusBar的高度
      *
