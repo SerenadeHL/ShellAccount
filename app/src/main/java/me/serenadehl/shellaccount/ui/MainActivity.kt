@@ -1,5 +1,6 @@
 package me.serenadehl.shellaccount.ui
 
+import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -13,7 +14,7 @@ class MainActivity : BaseActivity() {
 
     override fun layout() = R.layout.activity_main
 
-    override fun onActivityCreated() {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
         setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimary))
         val data: ArrayList<String> = arrayListOf()
         for (i in 1 until 100) {

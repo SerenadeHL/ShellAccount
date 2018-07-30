@@ -20,7 +20,7 @@ abstract class BaseActivity : AppCompatActivity() {
         mRootView = LayoutInflater.from(this).inflate(layout(), null)
         setContentView(mRootView)
         setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimary))
-        onActivityCreated()
+        onActivityCreated(savedInstanceState)
     }
 
     /**
@@ -29,7 +29,7 @@ abstract class BaseActivity : AppCompatActivity() {
      */
     abstract fun layout(): Int
 
-    abstract fun onActivityCreated()
+    abstract fun onActivityCreated(savedInstanceState: Bundle?)
 
     /**
      * 获得StatusBar的高度
